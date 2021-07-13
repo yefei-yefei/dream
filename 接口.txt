@@ -1,0 +1,125 @@
+后台登录  login.php          name,password  成功 ok 返回no   
+
+轮播标题  dream_title.php（已修改）   不传  直接获取 轮播背景图，标题，时间 （秒）内容
+		"id": "1",  
+		标题			"title": "感谢你曾经来过",
+		投票数		"pageView": "282",
+		内容			"content": "去微软推哦怕",
+		倒计时时间	"end_time": 2550072,
+		开始时间		"start_time": "1621872000",
+		投票数		"vote": "673",
+		投票人数		"players": "8",
+		图片	"banner_imgs": [
+		"http://192.168.0.19/dream/php/images/bg_02.gif",
+		"http://192.168.0.19/dream/php/images/img1_03.gif",
+		"http://192.168.0.19/dream/php/images/img2_03.gif"
+		]
+
+		add_dream_title.php  （已修改）   form 表单post 传递 	
+			$title=$_POST['title'];----------------->标题
+			$content=$_POST['content'];------------->内容
+			$start_time=$_POST['startTime'];-------->开始时间
+			$end_time=$_POST['endTime'];------------>接收时间
+			$pageView=$_POST['pageview'];----------->投票数
+			$arr=$_FILES['imgs'];------------------->多图片上传
+	
+时时更新浏览量  pageView.php   成功ok 错误no
+
+所有选手			players.php(已修改)         传page_size(显示的条数)，page（可传也可不传，默认第一页） 		
+				reserve_players.php(已修改)	传page_size(显示的条数)，page（可传也可不传，默认第一页	 根据投票数降序
+		
+			"player_serial"://编号
+			"player_name"://名字
+			"player_height",//身高
+			"player_weight"://体重
+			"player_strong"://特长
+			"player_magnum"://代表作
+			"player_age"://年龄
+			"player_vote"://投票数
+			"player_heat ://热度
+			"player_stage"://艺名
+			"player_role"://角色
+			"player_voice"//音频
+			"player_video"//视频
+			"imgUrls"     ://多张照片
+			"being_type": //正在参加的类型
+			"being_movie" //正在参加的电影
+			"player_tel"  //选手电话
+			"player_email" //选手邮箱
+			"player_sex"//选手性别
+			"san_wei"//三围
+		
+		搜索选手  	search_player.php(已修改)  传选手名称/艺名/编号 可查询到对应数据
+	
+		修改选手信息 add_players.php(已修改)   传当前数据的id
+	
+		添加选手     add_players.php(已修改)  传id=add  插入数据   成功ok 错误no
+		
+		删除选手  	del_players.php   传id 成功ok 错误no
+
+渲染规则（已修改）  holiday.php        所有数据
+
+		修改规则 add_holiday.php 修改相关规则
+	
+全部礼物  gift.php   直接输出所有礼物 
+								"id": "1",
+								"gift_name": "皇冠",
+								"gift_price": "999",
+								"gift_img": "http://192.168.0.79/dream/php/images/11.jpg"	
+								
+		修改礼物信息  	add_gift.php 传当前数据的id
+		
+		添加礼物		  	传id=add  插入数据   成功ok 错误no
+		
+		删除礼物		 	del_players.phps
+		
+点击选手 获取选手的信息  click.php 传选手的id   成功过去所有信息
+												接收的参数多一个ranking//排名
+																								
+角色报名  role.php 
+				通过对象的形式提交给我  ----下面是对象里的属性
+			//接收的参数
+			$player_name=$contents['player_name'];//名字
+			$player_sex=$contents['player_sex'];//选手性别
+			$player_age=$contents['player_age'];//年龄
+			$player_height=$contents['player_height'];//身高
+			$player_weight=$contents['player_weight'];//体重
+			$san_wei=$contents['san_wei'];//三围
+			$player_stage=$contents['player_stage'];//艺名
+			$player_strong=$contents['player_strong'];//特长
+			$player_magnum=$contents['player_magnum'];//代表作
+			$player_tel=$contents['player_tel'];//选手电话
+			$player_email=$contents['player_email'];//选手邮箱
+			$player_role=$contents['player_role'];//角色
+			$being_type=$contents['being_type'];//正在参加的类型
+			$being_movie=$contents['being_movie'];//正在参加的电影
+			//视频 
+			$player_video=$contents['player_video'];//视频
+			// //音频
+			$player_voice=$contents['player_voice'];//音频
+			$player_img=$contents['player_img'];//图片
+			
+	角色详情 roles.php(已修改)  获取所有信息 
+	
+	修改角色	 add_roles.php(已修改)   id=修改的id  成功ok 错误no
+	添加角色 add_roles.php(已修改)    id=add       成功ok 错误no
+						通过form表单提交的方式给我
+							$role_name=$_POST['role_name'];//角色姓名
+							$role_number=$_POST['role_number'];//角色编号
+							$role_con=$_POST['role_con'];//角色内容
+							$id=$_POST['id'];//角色标识
+							
+	删除角色  del_roles.php   id=角色的id
+							
+	upload.php 单图片上传   返回图片路径			
+		
+	点击投票  user.php   传（user_openid，players_id） 用户标识  选手的标识
+	
+	点击赠送  give.php   传	$openid=$_GET['openid'];//用户标识
+							$id=$_GET['id'];//  选手的id   
+							$gift_prices=$_GET['gift_prices'];//得到礼物的钱 直接等于票数
+			
+	menyPhone.php 充值成功后  给手机号，梦币$mony=$_GET['mony'];   添加余额梦币
+										  $phone=$_GET['phone'];  
+										  
+	phone.php  传递手机号phone=15735629946  获取余额
